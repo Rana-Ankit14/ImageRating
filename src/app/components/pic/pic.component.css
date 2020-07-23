@@ -1,0 +1,19 @@
+form{
+  clear: both;
+  width: 60%;
+  margin: 50px auto;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+form label{
+  font-weight: bold;
+}
+
+form * {
+  margin : 10px;
+}
+
+input[type=radio]{
+  display: inline-block;
+}

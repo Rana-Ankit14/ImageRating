@@ -8,8 +8,6 @@ import {GalleryService} from '../../services/gallery.service';
 })
 export class GalleryComponent implements OnInit {
   pics;
-  urlData =[];
-  url;
   constructor(private gallery:GalleryService) { }
 
   ngOnInit(): void {
@@ -18,8 +16,4 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-
-  onClickMe(id) {
-    console.log(id);
-  }
 }

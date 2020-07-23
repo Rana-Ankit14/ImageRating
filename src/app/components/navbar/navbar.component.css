@@ -1,0 +1,16 @@
+ul{
+  float: right;
+  clear: both;
+  margin: 20px 150px 20px auto;
+}
+ul li{
+  list-style-type: none;
+  display: inline-block;
+}
+
+ul li a{
+  border-bottom: 0.5px dashed grey;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+}
