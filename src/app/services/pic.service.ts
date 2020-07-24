@@ -1,20 +1,24 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class PicService {
-  url;
-  id;
-  secret = '1ac8e9626a22528f';
+  // url  = 'https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&';
+  // id;
+  // params;
+  // secret;
   constructor(private http:HttpClient) { }
-
-  getPic(id,secret){
-    this.url ='https://www.flickr.com/services/rest/?method=flickr.photos.getInfo&api_key=2e57eac93f1cd79bfa7d13c5fba36c6d&photo_id='+id+'&secret='+secret+'&format=json&nojsoncallback=1&auth_token=72157715205700067-0c72fbcd3c178eea&api_sig=6291f308aac12dc0310a4ef9f2cf4f9c';
-
-    return this.http.get<any>(this.url);
-  }
+  //
+  // getPic(id,secret):Observable<any>{
+  // this.id = id;
+  // this.secret = secret;
+  // this.params = `api_key=${environment.flickr.key}&id=${this.id}&secret=${this.secret}&format=json&nojsoncallback=1&secret=${environment.flickr.secret}`;
+  //   console.log(this.url+this.params);
+  //   return this.http.get<any>(this.url+this.params);
+  // }
 }

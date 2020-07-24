@@ -1,19 +1,17 @@
 form{
-  clear: both;
-  width: 60%;
-  margin: 50px auto;
-  padding: 100px 50px;
-  text-align: center;
+  margin-top: 200px;
 }
-
 form label{
   font-weight: bold;
+
 }
 
-form * {
-  margin : 10px;
-}
-
-input[type=radio]{
+div.rating input{
   display: inline-block;
+  margin-top:5px;
+}
+
+div.rating label{
+  display: inline-block;
+  margin-right: 35px;
 }

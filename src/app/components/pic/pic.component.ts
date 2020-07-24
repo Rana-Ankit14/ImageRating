@@ -22,7 +22,14 @@ export class PicComponent implements OnInit {
       this.farm= params.get('farm');
 
 
+      // this.pic.getPic(this.id,this.secret).subscribe(pic =>{
+      //   console.log(pic);
+      // });
+
     })
   }
 
+  log(x){
+    console.log(x);
+  }
 }

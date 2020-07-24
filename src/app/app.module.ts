@@ -9,6 +9,7 @@ import { PicComponent } from './components/pic/pic.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { RatingsComponent } from './components/ratings/ratings.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,28 +20,29 @@ import { RatingsComponent } from './components/ratings/ratings.component';
     NotfoundComponent,
     RatingsComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot([
-        {
-          path: '',
-          component: GalleryComponent
-        },
-        {
-          path : 'pic',
-          component : PicComponent
-        },
-      {
-        path : 'ratings',
-        component : RatingsComponent
-      },
-      {
-        path : '**',
-        component : NotfoundComponent
-      }
-    ])
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot([
+            {
+                path: '',
+                component: GalleryComponent
+            },
+            {
+                path: 'pic',
+                component: PicComponent
+            },
+            {
+                path: 'ratings',
+                component: RatingsComponent
+            },
+            {
+                path: '**',
+                component: NotfoundComponent
+            }
+        ]),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

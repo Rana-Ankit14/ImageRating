@@ -13,6 +13,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.gallery.getGallery().subscribe(pic =>{
       this.pics = pic.photos.photo;
+      console.log(pic);
     });
   }
 
