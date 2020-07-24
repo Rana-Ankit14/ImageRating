@@ -10,6 +10,7 @@ export class RatingsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(ratingHistory);
   }
 
 }

@@ -8,28 +8,60 @@ import {PicService} from '../../services/pic.service';
   styleUrls: ['./pic.component.css']
 })
 export class PicComponent implements OnInit {
+
+  ratingHistory:Array<any> = [];
+
   id;
   secret;
   farm;
   server;
-  constructor(private route:ActivatedRoute, private pic:PicService) { }
+  name;
+  reason;
+  rating;
+  ratingInput = true;
+  reasonInput = true;
+  nameInput = true;
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params=>{
-      this.id= params.get('id');
-      this.server= params.get('server');
-      this.secret= params.get('secret');
-      this.farm= params.get('farm');
-
-
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+      this.server = params.get('server');
+      this.secret = params.get('secret');
+      this.farm = params.get('farm');
       // this.pic.getPic(this.id,this.secret).subscribe(pic =>{
       //   console.log(pic);
       // });
-
-    })
+    });
   }
 
-  log(x){
-    console.log(x);
+  submit(){
+    if (this.rating === undefined){
+      this.ratingInput = false;
+      return;
+    }
+    this.ratingInput = true;
+    if (this.name === undefined){
+      this.nameInput = false;
+      return;
+    }
+    this.nameInput = true;
+    if (this.reason === undefined){
+      this.reasonInput = false;
+      return;
+    }
+    this.reasonInput = true;
+    this.ratingHistory.push({
+      id : this.id,
+      secret: this.secret,
+      farm: this.farm,
+      server: this.server,
+      name: this.name,
+      reason : this.reason,
+      rating: this.rating
+    });
+    console.log(this.ratingHistory);
+    // window.location.href = '/ratings';
+
   }
 }

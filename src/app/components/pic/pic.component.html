@@ -5,39 +5,46 @@
       <img  src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}.jpg"/>
     </div>
     <div class="col-1"></div>
-    <form class="col-6" method="post" action="/">
+    <form class="col-6" >
     <div class="form-group rating ">
       <label>Rating</label>
 
-      <input class="form-check-input" type="radio" name="rating" value="1" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="1" >
       <label class="form-check-label">1</label>
-      <input class="form-check-input" type="radio" name="rating" value="2" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="2" >
       <label class="form-check-label">2</label>
-      <input class="form-check-input" type="radio" name="rating" value="3" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="3" >
       <label class="form-check-label">3</label>
-      <input class="form-check-input" type="radio" name="rating" value="4" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="4" >
       <label class="form-check-label">4</label>
-      <input class="form-check-input" type="radio" name="rating" value="5" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="5" >
       <label class="form-check-label">5</label>
-      <input class="form-check-input" type="radio" name="rating" value="6" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="6" >
       <label class="form-check-label">6</label>
-      <input class="form-check-input" type="radio" name="rating" value="7" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="7" >
       <label class="form-check-label">7</label>
-      <input class="form-check-input" type="radio" name="rating" value="8" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="8" >
       <label class="form-check-label">8</label>
-      <input class="form-check-input" type="radio" name="rating" value="9" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="9" >
       <label class="form-check-label">9</label>
-      <input class="form-check-input" type="radio" name="rating" value="10" >
+      <input class="form-check-input" [(ngModel)]="rating"  [ngModelOptions]="{standalone: true}"  type="radio" name="rating" value="10" >
       <label class="form-check-label">10</label>
-
+      <div class="alert alert-danger" *ngIf="!ratingInput">Please select rating</div>
     </div>
     <div class="form-group">
-      <input ngModel class="form-control" name="name" #name="ngModel"  (change)="log(name.valid)" id="name"  placeholder="Name"/>
-      <div class="alert alert-danger" *ngIf="!name.valid">Name can't be empty</div>
+      <input class="form-control" [(ngModel)]="name"  [ngModelOptions]="{standalone: true}"
+             type="text" id="name"  placeholder="Name"/>
+      <div class="alert alert-danger" *ngIf="!nameInput">Name can't be empty</div>
     </div>
-    <div class="form-group"><textarea ngModel class="form-control" name="reason" id="reason"
-                                      placeholder="Reason for rating"></textarea></div>
-    <button type="submit" class="btn btn-dark btn-group-lg">Submit</button>
+
+    <div class="form-group"><textarea  class="form-control" [(ngModel)]="reason"  [ngModelOptions]="{standalone: true}"
+                                       id="reason" placeholder="Reason for rating"></textarea>
+      <div class="alert alert-danger" *ngIf="!reasonInput">Reason can't be empty</div>
+    </div>
+
+    <button type="submit" class="btn btn-dark btn-group-lg"  (click)="submit()">Submit</button>
+
   </form>
   </div>
+
 </div>
