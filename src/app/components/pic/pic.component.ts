@@ -11,17 +11,15 @@ export class PicComponent implements OnInit {
 
   ratingHistory:Array<any> = [];
 
-  id;
-  secret;
-  farm;
-  server;
+  id; secret; farm; server;
+  title; description;
   name;
   reason;
   rating;
   ratingInput = true;
   reasonInput = true;
   nameInput = true;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private pic:PicService) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -29,9 +27,10 @@ export class PicComponent implements OnInit {
       this.server = params.get('server');
       this.secret = params.get('secret');
       this.farm = params.get('farm');
-      // this.pic.getPic(this.id,this.secret).subscribe(pic =>{
-      //   console.log(pic);
-      // });
+      this.pic.getPic(this.id).subscribe(pic =>{
+        this.title = pic.photo.title._content;
+        this.description = (pic.photo.description._content).split('<')[0];
+      });
     });
   }
 
@@ -50,6 +49,7 @@ export class PicComponent implements OnInit {
       this.reasonInput = false;
       return;
     }
+
     this.reasonInput = true;
     this.ratingHistory.push({
       id : this.id,
