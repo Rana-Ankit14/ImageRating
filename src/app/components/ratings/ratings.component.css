@@ -1,0 +1,14 @@
+div.photo{
+  margin-top: 50px;
+}
+
+div.photo p{
+  margin-top: 20px;
+}
+
+div.photo img{
+  border: 1px solid black;
+  padding: 20px;
+  box-shadow: 0 0 20px black;
+}
+

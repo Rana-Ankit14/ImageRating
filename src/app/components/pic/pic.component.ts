@@ -65,7 +65,8 @@ export class PicComponent implements OnInit {
       server: this.server,
       name: this.name,
       reason: this.reason,
-      rating: this.rating
+      rating: this.rating,
+      title: this.title
     };
 
     this.currentRatings = JSON.parse(localStorage.getItem('ratingsHistory'));

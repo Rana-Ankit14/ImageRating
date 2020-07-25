@@ -7,11 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ratings.component.css']
 })
 export class RatingsComponent implements OnInit {
-
+  previousRatings;
   constructor() { }
 
   ngOnInit(): void {
-
+    this.previousRatings = JSON.parse(localStorage.getItem('ratingsHistory'));
   }
 
 }

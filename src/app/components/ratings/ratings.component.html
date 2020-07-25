@@ -1,1 +1,19 @@
-<p>ratings works!</p>
+<div class="container-fluid  row">
+  <h1 class="col-12 d-flex justify-content-center">Ratings</h1>
+  <div class="col-4 photo" *ngFor=" let rating of previousRatings">
+    <div class="col-12 d-flex justify-content-center">
+      <img class="col-8" src="https://farm{{rating.farm}}.staticflickr.com/{{rating.server}}/{{rating.id}}_{{rating
+        .secret}}.jpg"/>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <p>
+        Dish : {{rating.title}}
+        <br>
+        User Name : {{rating.name}}
+        <br>
+        Rating : {{rating.rating}}
+      </p>
+    </div>
+  </div>
+</div>
+
