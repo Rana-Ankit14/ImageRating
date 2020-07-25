@@ -8,12 +8,13 @@ import {GalleryService} from '../../services/gallery.service';
 })
 export class GalleryComponent implements OnInit {
   pics;
-  constructor(private gallery:GalleryService) { }
+
+  constructor(private gallery: GalleryService) { }
 
   ngOnInit(): void {
-    this.gallery.getGallery().subscribe(pic =>{
+    this.gallery.getGallery().subscribe(pic => {
       this.pics = pic.photos.photo;
-      console.log(pic);
+      // console.log(localStorage.getItem('ratingHistory'));
     });
   }
 
