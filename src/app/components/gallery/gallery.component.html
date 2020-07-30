@@ -10,9 +10,11 @@
         </a>
       </div>
       <div class="rating">
-        {{pic.name}}
-        <br/>
-        {{pic.rating}}
+        <p *ngIf="pic.name">
+          Name : {{pic.name}}
+          <br/>
+          Rating : {{pic.rating}}
+        </p>
       </div>
     </div>
     <div class="col-12 d-flex justify-content-center">
