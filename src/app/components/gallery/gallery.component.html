@@ -1,10 +1,12 @@
-<div>
-  <h1>Gallery</h1>
-  <div class="container-fluid row">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let pic of pics">
-      <div class="photo">
+<div class="col-12">
+  <h1 class="col-12 d-flex justify-content-center">Gallery</h1>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12"
+         *ngFor="let pic of pics |paginate: { itemsPerPage: 4, currentPage: page }">
+      <div class="photo d-flex justify-content-center">
         <a [routerLink]="['/pic',{farm: pic.farm,server:pic.server,id:pic.id,secret:pic.secret}]">
-        <img class="col-12" src="https://farm{{pic.farm}}.staticflickr.com/{{pic.server}}/{{pic.id}}_{{pic.secret}}.jpg"/>
+          <img class="col-12"
+               src="https://farm{{pic.farm}}.staticflickr.com/{{pic.server}}/{{pic.id}}_{{pic.secret}}.jpg"/>
         </a>
       </div>
       <div class="rating">
@@ -12,6 +14,9 @@
         <br/>
         {{pic.rating}}
       </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
   </div>
 </div>

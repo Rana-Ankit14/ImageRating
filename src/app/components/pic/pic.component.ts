@@ -75,7 +75,8 @@ export class PicComponent implements OnInit {
 
     }
     else {
-      this.currentRatings[this.currentRatings.length] = this.ratingDetails;
+      // this.currentRatings[this.currentRatings.length] = this.ratingDetails;
+      this.currentRatings.unshift(this.ratingDetails);
       localStorage.setItem('ratingsHistory', JSON.stringify(this.currentRatings));
     }
     window.location.href = '/';

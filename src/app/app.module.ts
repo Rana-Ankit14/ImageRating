@@ -1,14 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
-
-import { AppComponent } from './app.component';
-import { GalleryComponent } from './components/gallery/gallery.component';
-import { PicComponent } from './components/pic/pic.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
-import { RatingsComponent } from './components/ratings/ratings.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {AppComponent} from './app.component';
+import {GalleryComponent} from './components/gallery/gallery.component';
+import {PicComponent} from './components/pic/pic.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+import {NotfoundComponent} from './components/notfound/notfound.component';
+import {RatingsComponent} from './components/ratingsHistory/ratings.component';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
@@ -20,30 +20,32 @@ import {FormsModule} from '@angular/forms';
     NotfoundComponent,
     RatingsComponent
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        RouterModule.forRoot([
-            {
-                path: '',
-                component: GalleryComponent
-            },
-            {
-                path: 'pic',
-                component: PicComponent
-            },
-            {
-                path: 'ratings',
-                component: RatingsComponent
-            },
-            {
-                path: '**',
-                component: NotfoundComponent
-            }
-        ]),
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    NgxPaginationModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: GalleryComponent
+      },
+      {
+        path: 'pic',
+        component: PicComponent
+      },
+      {
+        path: 'ratingsHistory',
+        component: RatingsComponent
+      },
+      {
+        path: '**',
+        component: NotfoundComponent
+      }
+    ]),
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

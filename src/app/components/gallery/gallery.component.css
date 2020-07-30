@@ -1,6 +1,6 @@
 h1{
   clear: both;
-  text-align: center;
+  /*text-align: center;*/
   font-size: 80px;
   text-decoration: underline;
   text-decoration-color: darkolivegreen;
@@ -16,11 +16,13 @@ div.photo img{
   border: 1px solid darkolivegreen;
   box-shadow: 0 0 20px darkolivegreen;
   padding: 25px;
+
 }
 
 div.rating{
   width: 90%;
   text-align: center;
   padding: 15px;
+  height: 100px;
 }
 

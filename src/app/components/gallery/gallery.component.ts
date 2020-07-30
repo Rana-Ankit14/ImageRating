@@ -8,6 +8,7 @@ import {global} from '@angular/compiler/src/util';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit {
+  page = 1;
   pics;
   newPics;
   previousRatings;
@@ -25,9 +26,11 @@ export class GalleryComponent implements OnInit {
         this.pics = this.newPics;
         return;
       }
-
+      // Removing duplicates pics
       this.result = this.newPics.filter(newPic => !this.previousRatings.some(({id}) => newPic.id === id));
+      // shorting the length of the array that is holding the pics
       this.newResult = this.result.splice(0, this.result.length - this.previousRatings.length + 1);
+      // combining both the previous ratingsHistory array and newly receive pics array through api without duplicates
       this.pics = this.previousRatings.concat(this.newResult);
     });
 
