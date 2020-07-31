@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {GalleryService} from '../../services/gallery.service';
 import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-gallery',
@@ -14,7 +15,7 @@ export class GalleryComponent implements OnInit {
   previousRatings;
   value;
 
-  constructor(private gallery: GalleryService, private route: ActivatedRoute) {
+  constructor(private gallery: GalleryService, private route: ActivatedRoute, private location:Location) {
   }
 
   ngOnInit(): void {
@@ -23,12 +24,14 @@ export class GalleryComponent implements OnInit {
       if (params.get('page') !== null){
         this.page = parseInt(params.get('page'));
       }
+      this.location.replaceState(this.location.path().split(';')[0], '');
+
     });
     this.callingApi(this.page);
+
   }
 
   next(): void {
-    console.log('next');
     this.page++;
     this.callingApi(this.page);
   }
