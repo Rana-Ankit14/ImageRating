@@ -24,8 +24,9 @@
   </div>
   <div class="col-12 row">
     <div class="col-6">
-    <button class="btn btn-light float-md-right float-left" (click)="previous()">Previous</button>
+    <button  *ngIf="page>1" class="btn btn-light float-md-right float-left" (click)="previous()">Previous</button>
     </div>
+
     <div class="col-6">
     <button class="btn btn-light float-md-left float-right" (click)="next()">Next</button>
     </div>
