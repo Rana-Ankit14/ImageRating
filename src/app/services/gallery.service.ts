@@ -16,7 +16,7 @@ export class GalleryService {
   params;
   constructor(private http: HttpClient) { }
 
-  getGallery(page=1): Observable<any>{
+  getGallery(page= 1): Observable<any>{
     this.params = `api_key=${environment.flickr.key}&tags=${this.keyword}&per_page=30&page=${page}&format=json&nojsoncallback=1`;
     return this.http.get<any>(this.url + this.params);
   }

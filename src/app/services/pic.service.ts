@@ -18,7 +18,7 @@ export class PicService {
   getPic(id): Observable<any> {
     this.id = id;
     this.params = `api_key=${environment.flickr.key}&photo_id=${this.id}&format=json&nojsoncallback=1`;
-    return this.http.get<any>( this.url+ this.params);
+    return this.http.get<any>( this.url + this.params);
 
   }
 }

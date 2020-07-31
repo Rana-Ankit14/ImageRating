@@ -15,3 +15,8 @@ div.rating label{
   display: inline-block;
   margin-right: 35px;
 }
+
+div img{
+  max-height: 500px;
+  max-width: 500px;
+}
