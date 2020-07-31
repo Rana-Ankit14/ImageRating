@@ -1,4 +1,4 @@
-# Pic
+# Pic [Image Rating]
 
 ## Project Link
 https://flickr-image-rating.herokuapp.com/
