@@ -9,6 +9,8 @@ import {PicService} from '../../services/pic.service';
   styleUrls: ['./pic.component.css']
 })
 export class PicComponent implements OnInit {
+  page;
+  location;
   ratingDetails;
   id;
   secret;
@@ -23,7 +25,6 @@ export class PicComponent implements OnInit {
   reasonInput = true;
   nameInput = true;
   currentRatings;
-
   constructor(private route: ActivatedRoute, private pic: PicService) {
   }
 
@@ -33,7 +34,7 @@ export class PicComponent implements OnInit {
       this.server = params.get('server');
       this.secret = params.get('secret');
       this.farm = params.get('farm');
-
+      this.page = params.get('page');
       this.pic.getPic(this.id).subscribe(pic => {
         this.title = pic.photo.title._content;
         this.description = (pic.photo.description._content).split('<')[0];
@@ -79,6 +80,7 @@ export class PicComponent implements OnInit {
       this.currentRatings.unshift(this.ratingDetails);
       localStorage.setItem('ratingsHistory', JSON.stringify(this.currentRatings));
     }
-    window.location.href = '/';
+    this.location = `/gallery;page=${this.page}`;
+    window.location.href = this.location;
   }
 }

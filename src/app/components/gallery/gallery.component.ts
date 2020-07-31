@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {GalleryService} from '../../services/gallery.service';
-import {global} from '@angular/compiler/src/util';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -12,18 +12,23 @@ export class GalleryComponent implements OnInit {
   pics;
   newPics;
   previousRatings;
-  result;
-  newResult;
   value;
 
-  constructor(private gallery: GalleryService) {
+  constructor(private gallery: GalleryService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    this.callingApi();
+
+    this.route.paramMap.subscribe(params => {
+      if (params.get('page') !== null){
+        this.page = parseInt(params.get('page'));
+      }
+    });
+    this.callingApi(this.page);
   }
 
   next(): void {
+    console.log('next');
     this.page++;
     this.callingApi(this.page);
   }
@@ -50,7 +55,6 @@ export class GalleryComponent implements OnInit {
           }
           return false;
         });
-        console.log(this.value);
         return true;
       });
       this.pics = this.newPics;

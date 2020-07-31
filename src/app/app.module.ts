@@ -30,6 +30,10 @@ import {FormsModule} from '@angular/forms';
         component: GalleryComponent
       },
       {
+        path: 'gallery',
+        component: GalleryComponent
+      },
+      {
         path: 'pic',
         component: PicComponent
       },
