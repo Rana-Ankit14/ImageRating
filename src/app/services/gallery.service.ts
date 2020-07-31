@@ -11,12 +11,13 @@ import {environment} from '../../environments/environment';
 // remove the duplicate values pics and if filter+ratingHistory = 30 then combine of else remove remaing item from filter array
 // if the rating is present display on the grid
 export class GalleryService {
-  keyword ='food'
-  url : string = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
-  params = `api_key=${environment.flickr.key}&tags=${this.keyword}&per_page=30&format=json&nojsoncallback=1`;
-  constructor(private http:HttpClient) { }
+  keyword = 'food';
+  url = 'https://www.flickr.com/services/rest/?method=flickr.photos.search&';
+  params;
+  constructor(private http: HttpClient) { }
 
-  getGallery():Observable<any>{
-    return this.http.get<any>(this.url+this.params);
+  getGallery(page=1): Observable<any>{
+    this.params = `api_key=${environment.flickr.key}&tags=${this.keyword}&per_page=30&page=${page}&format=json&nojsoncallback=1`;
+    return this.http.get<any>(this.url + this.params);
   }
 }
